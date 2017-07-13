@@ -5,6 +5,11 @@ global:
   dbName: "mattermost"
   mattermostLicense: "THIS STRING SHOULD BE REPLACED WITH THE CONTENTS OF YOUR LICENSE FILE"
 
+tags:
+  core: true
+  metrics: true
+  loadtest: false
+
 mattermost-app:
   replicaCount: 2
   image:
@@ -13,3 +18,18 @@ mattermost-app:
 mattermost-proxy:
   replicaCount: 2
 
+mattermost-loadtest:
+  numTeams: 1
+  numChannelsPerTeam: 4000
+  numUsers: 5000
+  testLengthMinutes: 10
+  numActiveEntities: 5000
+  actionRateMilliseconds: 60000
+  actionRateMaxVarianceMilliseconds: 15000
+  resultsWebhook: ""
+
+mattermost-pprof:
+  resultsServerUrl: ""
+  channelId: ""
+  resultsUsername: ""
+  resultsPassword: ""
